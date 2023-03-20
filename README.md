@@ -66,6 +66,12 @@ php artisan migrate
 php artisan storage:link
 ```
 
+-  seed database
+
+```bash
+php artisan db:seed --class=UserSeeder
+```
+
 -   run the server
 
 ```bash
