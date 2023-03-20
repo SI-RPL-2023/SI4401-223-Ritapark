@@ -4,20 +4,25 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('transaksi', function (Blueprint $table) {
+        Schema::create("transaksi", function (Blueprint $table) {
             $table->id();
-            $table->foreignId('booking_id')->references('id')->on('bookings');
-            $table->foreignId('promo_id')->references('id')->on('promo');
-            $table->string('status');
-            $table->string('total_harga');
-            $table->string('metode');
+            $table
+                ->foreignId("booking_id")
+                ->references("id")
+                ->on("bookings");
+            $table
+                ->foreignId("promo_id")
+                ->references("id")
+                ->on("promo");
+            $table->string("status");
+            $table->string("total_harga");
+            $table->string("metode");
             $table->timestamps();
         });
     }
@@ -27,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('transaksi');
+        Schema::dropIfExists("transaksi");
     }
 };

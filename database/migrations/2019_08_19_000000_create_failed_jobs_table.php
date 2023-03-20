@@ -12,8 +12,14 @@ return new class extends Migration {
     {
         Schema::create("bookings", function (Blueprint $table) {
             $table->id();
-            $table->foreignId("user_id")->references("id")->on("users");
-            $table->foreignId("tickets_id")->references("id")->on("tickets");
+            $table
+                ->foreignId("user_id")
+                ->references("id")
+                ->on("users");
+            $table
+                ->foreignId("tickets_id")
+                ->references("id")
+                ->on("tickets");
             $table->integer("qty");
             $table->string("status");
             $table->date("date");
