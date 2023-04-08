@@ -1,5 +1,4 @@
 @extends('layout.layout')
-@include('layout.contactus')
 @section('content')
 
 <section class="vh-100" style="background-color: #f6f6f6;">
@@ -35,7 +34,7 @@
                   </div>
 
                   {{-- <a class="small text-muted" href="#!">Forgot password?</a> --}}
-                  <p class="mb-5 pb-lg-2" style="color: #393f81;">Belum memiliki akun? <a href=""
+                  <p class="mb-5 pb-lg-2" style="color: #393f81;">Belum memiliki akun? <a href="{{route('register')}}"
                       style="color: #393f81;">Klik disini</a></p>
                 </form>
 
