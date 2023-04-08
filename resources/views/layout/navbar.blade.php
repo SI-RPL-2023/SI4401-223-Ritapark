@@ -21,7 +21,7 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="mx-3">
                             @if (!session('loggedin',FALSE))
-                                <a role="button" class="btn btn-outline-danger px-4 my-3" style="--bs-btn-color: #F94156; " href="daftarPesanan.php">
+                                <a role="button" class="btn btn-outline-danger px-4 my-3" style="--bs-btn-color: #F94156; " href="{{route('register')}}">
                                     Daftar
                                 </a>
                             @else
@@ -33,16 +33,16 @@
                         <li class="mx-3">
                             @if (session('loggedin',FALSE))
                                 <div class="nav-item dropdown">
-                                    <a class="btn btn-outline-danger px-4 my-3" style="--bs-btn-color: #F94156; "  data-bs-toggle="dropdown" aria-expanded="false"><?php echo $_SESSION['name']?></a>                                        
+                                    <a class="btn btn-danger px-4 my-3 text-white" style="--bs-btn-color: #F94156; "  data-bs-toggle="dropdown" aria-expanded="false">a</a>                                        
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="">Profil</a></li>
-                                        <li><a class="dropdown-item" href="">Logout</a></li>
+                                        <li><a class="dropdown-item" href="{{route('logout')}}">Logout</a></li>
                                     </ul>
                                 </div>
                             @else
-                                <button type="button" class="btn btn-danger px-4 my-3" style="--bs-btn-color: #FFFFFF; " data-bs-toggle="modal" data-bs-target="#masuk">
+                                <a role="button" class="btn btn-danger text-white px-4 my-3" style="--bs-btn-color: #F94156; " href="{{route('login')}}">
                                     Masuk
-                                </button>
+                                </a>
                             @endif
                         </li>
                     </ul>

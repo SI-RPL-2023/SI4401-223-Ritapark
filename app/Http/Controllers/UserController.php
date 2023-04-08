@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Storage;
+use App\Models\User;
 
 class UserController extends Controller
 {
-
     public function logout(Request $request){
         $request->session()->invalidate();
         return redirect()->route('home')->with('logout-success','Berhasil logout');
@@ -28,4 +31,9 @@ class UserController extends Controller
         }
         return view('login',compact('data'));
     }
+
+    public function register(){
+        return view('register');
+    }
+    
 }
