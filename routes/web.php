@@ -15,10 +15,9 @@ use Illuminate\Support\Facades\Storage;
 |
 */
 
-Route::get('/', [UserController::class, 'welcome'])->name('welcome');
+Route::get('/', [UserController::class, 'login'])->name('login');
 Route::get('/login', [UserController::class, 'login'])->name('login');
-Route::post('/login-attempt', [UserController::class, 'loginScript'])->name('loginS');
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
-Route::post('/register/attempt', [UserController::class, 'registerScript'])->name('registerS');
+
 
