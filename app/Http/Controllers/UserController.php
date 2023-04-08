@@ -10,9 +10,7 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function logout(Request $request){
-        $request->session()->invalidate();
-        return redirect()->route('home')->with('logout-success','Berhasil logout');
+
     }
 
     public function login(Request $request){
