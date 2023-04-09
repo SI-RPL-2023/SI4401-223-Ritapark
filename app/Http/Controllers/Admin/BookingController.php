@@ -11,7 +11,7 @@ class BookingController extends Controller
 {
   public function index()
   {
-    $data = Booking::join('tickets', 'tickets.id', '=', 'bookings.ticket_id')
+    $data = Booking::join('tickets', 'tickets.id', '=', 'bookings.tickets_id')
       ->join('users', 'bookings.user_id', '=', 'users.id')
       ->select(
         'bookings.id',
