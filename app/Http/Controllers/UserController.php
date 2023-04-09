@@ -6,19 +6,21 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use App\Models\User;
 
 class UserController extends Controller
 {
-    public function logout(Request $request){
+    public function logout(Request $request)
+    {
         $request->session()->invalidate();
-        return redirect()->route('welcome')->with('logout-success','Berhasil logout');
+        return redirect()->route('home')->with('logout-success', 'Berhasil logout');
     }
 
     public function login(Request $request)
     {
-        if (session('loggedin', FALSE)) return redirect()->route('welcome')->with('ilegal', 'Already Logged in');
+        if (session('loggedin', FALSE)) return redirect()->route('home')->with('ilegal', 'Already Logged in');
         $remember = $request->cookie('remember');
         if ($remember) {
             $data = [
@@ -39,24 +41,31 @@ class UserController extends Controller
         return view('register');
     }
 
-    public function welcome()
+    public function home()
     {
-        return view('welcome');
+        return view('home');
     }
 
     public function registerScript(Request $request)
     {
-        $u = DB::table('users')->where('email', $request->email)->first();
-        if ($u) return redirect()->route('daftar')->with('email-exist', 'email must be unique');
-        if ($request->password != $request->password1) return redirect()->route('register')->with('password-not-match', 'please try again');
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|unique:users,email',
+            'password' => 'required',
+            'password1' => 'required|same:password',
+            'username' => 'required',
+            'hp' => 'required'
+        ]);
+
         $user = new User;
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = $request->password;
+        $user->password = Hash::make($request->password);
         $user->username = $request->username;
         $user->phone_number = $request->hp;
         $user->role = 'user';
         $user->save();
+
         return redirect()->route('login');
     }
 
@@ -88,7 +97,7 @@ class UserController extends Controller
                 if ($user->role == "admin") {
                     return redirect()->route('adm.dashboard');
                 } else {
-                    return redirect()->route('welcome');
+                    return redirect()->route('home');
                 }
             } else {
                 return redirect()->route('login')->with(['error' => 'Wrong username or password!']);
