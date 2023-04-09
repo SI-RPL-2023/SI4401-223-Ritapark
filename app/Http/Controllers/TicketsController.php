@@ -7,7 +7,7 @@ use App\Models\Ticket;
 use App\Models\Booking;
 use Illuminate\Support\Facades\Auth;
 
-class TicketController extends Controller
+class TicketsController extends Controller
 {
     public function my_ticket()
     {

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\TicketsController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\TicketController;
 use App\Http\Controllers\Admin\BookingController;
@@ -40,3 +41,11 @@ Route::post('/login-attempt', [UserController::class, 'loginScript'])->name('log
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 Route::post('/register/attempt', [UserController::class, 'registerScript'])->name('registerS');
+
+Route::get('/booking', [TicketController::class,'booking'])->name('booking');
+Route::get('/my_ticket', [TicketController::class,'my_ticket'])->name('my_ticket');
+
+Route::post('/booking_store', [TicketController::class,'booking_store'])->name('booking.store');
+Route::get('/payment/{id}', [TicketController::class,'payment'])->name('payment');
+Route::post('/booking_confirmation', [TicketController::class,'booking_confirmation'])->name('booking.confirmation');
+Route::get('/ticket/{id}', [TicketController::class,'ticket'])->name('ticket');
