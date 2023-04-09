@@ -40,3 +40,11 @@ Route::post('/login-attempt', [UserController::class, 'loginScript'])->name('log
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 Route::post('/register/attempt', [UserController::class, 'registerScript'])->name('registerS');
+
+Route::get('/booking', [FrontendController::class,'booking'])->name('booking');
+Route::get('/my_ticket', [FrontendController::class,'my_ticket'])->name('my_ticket');
+
+Route::post('/booking_store', [FrontendController::class,'booking_store'])->name('booking.store');
+Route::get('/payment/{id}', [FrontendController::class,'payment'])->name('payment');
+Route::post('/booking_confirmation', [FrontendController::class,'booking_confirmation'])->name('booking.confirmation');
+Route::get('/ticket/{id}', [FrontendController::class,'ticket'])->name('ticket');
