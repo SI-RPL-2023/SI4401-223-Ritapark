@@ -12,7 +12,6 @@ class Booking extends Model
 
     protected $fillable = [
         "user_id",
-        "wahana_id",
         "ticket_id",
         "date",
         "qty",
