@@ -21,7 +21,15 @@ class UserSeeder extends Seeder
             'phone_number' => '081234567890',
             'email' => 'tes@gmail.com',
             'username' => 'testing',
+            'password' => Hash::make('123456'),
+        ]);
+        User::create([
+            'name' => 'admin',
+            'phone_number' => '081234567890',
+            'email' => 'admin@gmail.com',
+            'username' => 'admin',
             'password' => Hash::make('12345678'),
+            'role' => 'admin',
         ]);
     }
 }

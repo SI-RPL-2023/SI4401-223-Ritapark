@@ -15,13 +15,13 @@ class Role
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next, $role)
+    public function handle(Request $request, Closure $next)
     {
-        if (Auth::user() && Auth::user()->role == $role) {
+        $auth = auth()->user()->role;
+        if ($auth == "admin") {
             return $next($request);
+        } else {
+            return redirect()->route('login');
         }
-        return response()->json([
-            "message" => "Error because you aren't admin!"
-        ]);
     }
 }
