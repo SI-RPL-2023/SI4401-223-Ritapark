@@ -13,4 +13,24 @@ class FrontendController extends Controller
     {
         return view('home');
     }
+
+    public function about()
+    {
+        return view('about');
+    }
+
+    public function wahana()
+    {
+        return view('wahana');
+    }
+    
+    public function promo()
+    {
+        return view('promo');
+    }
+
+    public function contact()
+    {
+        return view('contact');
+    }
 }

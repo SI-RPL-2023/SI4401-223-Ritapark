@@ -31,7 +31,7 @@
                             <div class="col-md-2 col-sm-6 col-xs-6">
                                 <div id="logo">
                                     <!--<a href="index.html"><img src="images/logo.png" alt="logo"></a>-->
-                                    <a href="index.html"><span>Rita Park</span></a>
+                                    <a href="{{ route('home') }}"><span>Rita Park</span></a>
                                 </div>
                             </div>
                             <div class="col-sm-6 visible-sm">
