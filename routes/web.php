@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\TicketsController;
@@ -21,10 +22,7 @@ use App\Http\Middleware;
 |
 */
 
-Route::get("/", function () {
-    return view("welcome");
-});
-
+Route::get('/', [FrontendController::class,'index'])->name('home');
 
 Route::group(['middleware' => ["Role"], 'as' => 'adm.'], function () {
     Route::get('/admin', [DashboardController::class, 'index'])->name('dashboard');
