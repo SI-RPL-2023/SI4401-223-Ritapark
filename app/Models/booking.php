@@ -14,8 +14,8 @@ class Booking extends Model
         "user_id",
         "wahana_id",
         "ticket_id",
-        "tanggal",
-        "jumlah",
+        "date",
+        "qty",
         "status",
     ];
 
