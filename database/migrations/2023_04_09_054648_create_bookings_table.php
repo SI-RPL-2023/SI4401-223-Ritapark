@@ -23,7 +23,7 @@ return new class extends Migration
                 ->on("tickets");
             $table->foreignId("wahana_id")
                 ->references("id")
-                ->on("wahana");
+                ->on("wahanas");
             $table->integer("qty");
             $table->string("status");
             $table->date("date");

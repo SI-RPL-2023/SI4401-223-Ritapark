@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\TicketController;
 use App\Http\Controllers\Admin\BookingController;
+use App\Http\Controllers\Admin\WahanaController;
 use App\Http\Middleware;
 
 /*
@@ -26,9 +27,10 @@ Route::get("/", function () {
 
 Route::group(['middleware' => ["Role"], 'as' => 'adm.'], function () {
     Route::get('/admin', [DashboardController::class, 'index'])->name('dashboard');
-
     Route::resource('admin/ticket', TicketController::class);
+    Route::resource('admin/wahana', WahanaController::class);
     Route::get('/admin/ticket/delete/{id}', [TicketController::class, 'destroy'])->name('ticket.hapus');
+    Route::get('/admin/wahana/delete/{id}', [WahanaController::class, 'destroy'])->name('wahana.hapus');
     Route::get('/admin/booking', [BookingController::class, 'index'])->name('booking.index');
 });
 

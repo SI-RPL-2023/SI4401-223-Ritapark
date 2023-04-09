@@ -19,5 +19,11 @@
           <span class="menu-title">Booking</span>
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('adm.wahana.index') }}">
+          <i class="menu-icon mdi mdi-floor-plan"></i>
+          <span class="menu-title">Wahana</span>
+        </a>
+      </li>
     </ul>
   </nav>
