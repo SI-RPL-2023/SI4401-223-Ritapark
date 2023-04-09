@@ -21,9 +21,6 @@ return new class extends Migration
                 ->foreignId("tickets_id")
                 ->references("id")
                 ->on("tickets");
-            $table->foreignId("wahana_id")
-                ->references("id")
-                ->on("wahanas");
             $table->integer("qty");
             $table->string("status");
             $table->date("date");
