@@ -12,7 +12,7 @@ class TicketsController extends Controller
     public function my_ticket()
     {
         if(Auth::user()){
-            $data = Booking::join('tickets','tickets.id','=','bookings.ticket_id')
+            $data = Booking::join('tickets','tickets.id','=','bookings.tickets_id')
             ->where('user_id',Auth::user()->id)
             ->select('bookings.id','tickets.nama','tickets.harga','tickets.deskripsi'
             ,'bookings.qty')
@@ -38,7 +38,7 @@ class TicketsController extends Controller
             'qty' => 'required'
         ]);
 
-        $data = Booking::insertGetId(['ticket_id' => $request->ticket_id,'user_id' => Auth::user()->id,
+        $data = Booking::insertGetId(['tickets_id' => $request->ticket_id,'user_id' => Auth::user()->id,
                         'qty' => $request->qty,'date' => $request->date,'status' => 0,
                         'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                         'updated_at' => \Carbon\Carbon::now()->toDateTimeString()]);
@@ -47,7 +47,7 @@ class TicketsController extends Controller
 
     public function payment($id)
     {
-        $data = Booking::join('tickets','tickets.id','=','bookings.ticket_id')
+        $data = Booking::join('tickets','tickets.id','=','bookings.tickets_id')
         ->where('bookings.id',$id)
         ->first();
         if($data->status == 0){
@@ -68,7 +68,7 @@ class TicketsController extends Controller
 
     public function ticket($id)
     {
-        $data = Booking::join('tickets','tickets.id','=','bookings.ticket_id')
+        $data = Booking::join('tickets','tickets.id','=','bookings.tickets_id')
         ->where('bookings.id',$id)
         ->first();
         if($data->status == 1){

@@ -69,7 +69,7 @@ php artisan storage:link
 -  seed database
 
 ```bash
-php artisan db:seed --class=UserSeeder
+php artisan db:seed
 ```
 
 -   run the server
