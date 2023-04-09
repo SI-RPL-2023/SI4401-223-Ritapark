@@ -15,10 +15,22 @@ use Illuminate\Support\Facades\Storage;
 |
 */
 
+Route::get("/", function () {
+    return view("welcome");
+});
+
+
+Route::group(['middleware' => ["Role"], 'as' => 'adm.'], function () {
+    Route::get('/admin', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::resource('admin/ticket',TicketController::class);
+    Route::get('/admin/ticket/delete/{id}', [TicketController::class,'destroy'])->name('ticket.hapus');
+    Route::get('/admin/booking', [BookingController::class, 'index'])->name('booking.index');
+});
+
 Route::get('/', [UserController::class, 'welcome'])->name('welcome');
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/login-attempt', [UserController::class, 'loginScript'])->name('loginS');
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 Route::post('/register/attempt', [UserController::class, 'registerScript'])->name('registerS');
-
