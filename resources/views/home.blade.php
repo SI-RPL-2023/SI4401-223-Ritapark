@@ -1,5 +1,5 @@
 @extends('partials.template')
-
+@include('layout.contactus')
 @section('content')
     <!--end-->
     <div id="myCarousel1" class="carousel slide" data-ride="carousel">
