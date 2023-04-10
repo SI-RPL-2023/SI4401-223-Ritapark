@@ -99,19 +99,7 @@
                                 </div> -->
                             </div>
                         </div>
-                        <div class="col-md-3 col-sm-6 col-xs-12 width-50 width-set-50">
-                            <div class="footer-details">
-                                <h4>explore</h4>
-                                <ul class="list-unstyled footer-links">
-                                    <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="{{ route('home') }}">Home</a></li>
-                                    <li class="{{ Request::is('about') ? 'active' : '' }}"><a href="{{ route('about') }}">Tentang Kami</a></li>
-                                    <li class="{{ Request::is('wahana') ? 'active' : '' }}"><a href="{{ route('wahana') }}">Wahana</a></li>
-                                    <li class="{{ Request::is('promo') ? 'active' : '' }}"><a href="{{ route('promo') }}">Promo</a></li>
-                                    <li class="{{ Request::is('booking') ? 'active' : '' }}"><a href="{{ route('booking') }}">Booking</a></li>
-                                    <li class="{{ Request::is('contact') ? 'active' : '' }}"> <a href="{{ route('contact') }}">Kontak Kami</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </footer>
