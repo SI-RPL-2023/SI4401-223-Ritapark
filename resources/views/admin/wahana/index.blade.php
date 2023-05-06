@@ -41,8 +41,8 @@
                                         <td>{{ $item->deskripsi }}</td>
                                         <td>{{ $item->kuota }}</td>
                                         <td>{{ $item->status }}</td>
-                                        <td><a href="{{ route('adm.ticket.edit',$item->id) }}" class="btn btn-success">Edit</a>
-                                            <a href="{{ route('adm.ticket.hapus',$item->id) }}" onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-danger">Hapus</a></td>
+                                        <td><a href="{{ route('adm.wahana.edit',$item->id) }}" class="btn btn-success">Edit</a>
+                                            <a href="{{ route('adm.wahana.hapus',$item->id) }}" onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-danger">Hapus</a></td>
                                     </tr>
                                 @endforeach
                             </tbody>
