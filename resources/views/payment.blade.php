@@ -36,7 +36,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="date">Total : </label>
-                                <input type="text" disabled class="form-control" value="{{ $data->qty * $data->harga }}">
+                                <input type="text" disabled class="form-control" name="total" value="{{ $data->qty * $data->harga }}">
                             </div>
                             <div class="form-group">
                                 <label for="date">Payment via : </label><br>
