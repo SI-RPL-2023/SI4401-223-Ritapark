@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->string("nama");
             $table->string("deskripsi");
             $table->string("kuota");
+            $table->string("foto");
             $table->string("status");
             $table->timestamps();
         });
