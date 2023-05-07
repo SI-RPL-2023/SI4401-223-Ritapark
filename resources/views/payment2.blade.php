@@ -22,40 +22,19 @@
                             </div>
                             <div style="margin-top: 20px;">
                                 <p style="font-weight: bold;">Nominal harus dibayarkan</p>
-                                <p style="font-size: 1.8vw; font-weight: bold;">Rp. isi nominal</p>
+                                <p style="font-size: 1.8vw; font-weight: bold;">Rp. {{ $data->qty * $data->harga }}</p>
                             </div>
 
-                            <!-- if (metode pembayaran = gopay) -->
                             <div style="margin-top: 40px;" style="font-size: 0.9vw;">
                                 <p>Cara Pembayaran</p>
-                                <ol> 1. Buka aplikasi gojek </ol>
+                                <ol> 1. Buka aplikasi </ol>
                                 <ol> 2. Tekan tombol “Bayar” </ol>
                                 <ol> 3. Scan qr code yang telah diberikan </ol>
                                 <ol> 4. Masukkan sejumlah nominal yang telah ditentukan </ol>
                                 <ol> 5. Lakukan pembayaran </ol>
                                 <ol> 6. Screenshot bukti pembayaran berhasil </ol>
                             </div>
-                            <!-- if (metode pembayaran = ovo) -->
-                            <!-- <div style="margin-top: 40px;" style="font-size: 0.9vw;">
-                                <p>Cara Pembayaran</p>
-                                <ol> 1. Buka aplikasi ovo </ol>
-                                <ol> 2. Klik menu ‘Scan’ </ol>
-                                <ol> 3. Lakukan scan QR barcode </ol>
-                                <ol> 4. Masukkan sejumlah nominal yang telah ditentukan </ol>
-                                <ol> 5. Lakukan pembayaran </ol>
-                                <ol> 6. Screenshot bukti pembayaran berhasil </ol>
-                            </div> -->
-                            <!-- else -->
-                            <!-- <div style="margin-top: 40px;" style="font-size: 0.9vw;">
-                                <p>Cara Pembayaran</p>
-                                <ol> 1. Buka aplikasi linkaja </ol>
-                                <ol> 2. Pilih “Bayar” </ol>
-                                <ol> 3. Scan qr code yang telah diberikan </ol>
-                                <ol> 4. Masukkan sejumlah nominal yang telah ditentukan </ol>
-                                <ol> 5. Lakukan pembayaran </ol>
-                                <ol> 6. Screenshot bukti pembayaran berhasil </ol>
-                            </div> -->
-                            <!-- endif -->
+                            
                             @if (Auth::user())
                             <form action="{{ route('payment.confirmation') }}" enctype="multipart/form-data" method="POST">
                             @csrf
