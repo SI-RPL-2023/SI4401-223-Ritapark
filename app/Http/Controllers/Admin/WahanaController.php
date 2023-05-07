@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Wahana;
+use Illuminate\Support\Facades\Storage;
 
 class WahanaController extends Controller
 {
@@ -42,13 +43,16 @@ class WahanaController extends Controller
       'nama' =>  'required',
       'deskripsi' => 'required',
       'kuota' => 'required',
+      'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
       'status' => 'required',
     ]);
+    $img = Storage::disk('public')->put('img', $request->file('image'));
 
     $data = new Wahana();
     $data->nama = $request->nama;
     $data->deskripsi = $request->deskripsi;
     $data->kuota = $request->kuota;
+    $data->foto = $img;
     $data->status = $request->status;
     $data->save();
 
@@ -88,18 +92,23 @@ class WahanaController extends Controller
    */
   public function update(Request $request, $id)
   {
+    $data = Wahana::find($id);
     // Validasi
     $request->validate([
       'nama' =>  'required',
       'deskripsi' => 'required',
       'kuota' => 'required',
+      'image' => 'image|mimes:jpeg,png,jpg|max:2048',
       'status' => 'required',
     ]);
 
-    $data = new Wahana();
     $data->nama = $request->nama;
     $data->deskripsi = $request->deskripsi;
     $data->kuota = $request->kuota;
+    if ($request->hasFile('image')) {
+      $img = Storage::disk('public')->put('img', $request->file('image'));
+      $data->foto = $img;
+  }
     $data->status = $request->status;
     $data->save();
 
