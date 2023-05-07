@@ -27,6 +27,10 @@
                             <label for="exampleInputPassword4">Status Wahana</label>
                             <input type="text" name="status" class="form-control" id="exampleInputPassword4" placeholder="Status">
                         </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword4">Foto Wahana</label>
+                            <input type="file" class="form-control" name="image" id="image" accept=".jpg,.gif,.png"/>
+                        </div>
                         <button type="submit" class="btn btn-primary me-2">Submit</button>
                         <a class="btn btn-light" href="{{ route('adm.wahana.index') }}">Cancel</a>
                     </form>
