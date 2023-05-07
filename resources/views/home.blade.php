@@ -1,5 +1,5 @@
 @extends('partials.template')
-
+@include('layout.contactus')
 @section('content')
     <!--end-->
     <div id="myCarousel1" class="carousel slide" data-ride="carousel">
@@ -65,8 +65,7 @@
                     <div class="side-B">
                         <div class="product-desc-side">
                             <h3><a>Bianglala</a></h3>
-                            <p>Lorem ipsum dolor sit amet, consec adipiscing elit. Nunc lorem nulla, ornare eu felis luctus
-                                non maximus vitae, portt neque. ipsum dolor sit amet, consec adipiscing elit.</p>
+                            <p>wahana rekreasi yang berbentuk roda besar yang berputar dengan lambat dan berisi beberapa gerbong kecil yang dapat menampung beberapa orang di dalamnya.</p>
                             <!-- <div class="links"><a href="#">Read more</a></div> -->
                         </div>
                     </div>
@@ -83,8 +82,7 @@
                     <div class="side-B">
                         <div class="product-desc-side">
                             <h3><a>Roller Coaster</a></h3>
-                            <p>Lorem ipsum dolor sit amet, consec adipiscing elit. Nunc lorem nulla, ornare eu felis luctus
-                                non maximus vitae, portt neque. ipsum dolor sit amet, consec adipiscing elit.</p>
+                            <p>Wahana ini terdiri dari rel berbentuk seperti jalan setapak yang membentang di atas tanah dan terkadang di atas bangunan atau struktur lainnya.</p>
                             <!-- <div class="links"><a href="#">Read more</a></div> -->
                         </div>
                     </div>
@@ -94,8 +92,7 @@
                     <div class="side-A">
                         <div class="product-desc-side">
                             <h3><a>Tornado</a></h3>
-                            <p>Lorem ipsum dolor sit amet, consec adipiscing elit. Nunc lorem nulla, ornare eu felis luctus
-                                non maximus vitae, portt neque. ipsum dolor sit amet, consec adipiscing elit.</p>
+                            <p>memiliki bentuk yang mirip dengan tornado, yaitu berbentuk kerucut dan berputar dengan kecepatan yang tinggi</p>
                             <!-- <div class="links"><a href="#">Read more</a></div> -->
                         </div>
                     </div>
@@ -114,8 +111,7 @@
                     <div class="side-A">
                         <div class="product-desc-side">
                             <h3><a>Kicir-Kicir</a></h3>
-                            <p>Lorem ipsum dolor sit amet, consec adipiscing elit. Nunc lorem nulla, ornare eu felis luctus
-                                non maximus vitae, portt neque. ipsum dolor sit amet, consec adipiscing elit.</p>
+                            <p>Wahana ini terdiri dari kursi-kursi kecil yang tergantung pada sebuah tiang pusat</p>
                             <!-- <div class="links"><a href="#">Read more</a></div> -->
                         </div>
                     </div>
@@ -150,10 +146,7 @@
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
                             <div class="blog-box">
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                    has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                    printer took a galley of type and scrambled it to make a type specimen book. It has
-                                    survived not only</p>
+                                <p>Sensasi yang saya rasakan sangat luar biasa! Saya suka kecepatan dan putaran yang membuat saya terasa seperti terbang.</p>
                             </div>
                             <div class="blog-view-box">
                                 <div class="media">
@@ -169,10 +162,7 @@
                         </div>
                         <div class="item">
                             <div class="blog-box">
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                    has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                    printer took a galley of type and scrambled it to make a type specimen book. It has
-                                    survived not only</p>
+                                <p>Bagian yang saya kurang sukai adalah saat wahana berbelok dengan tiba-tiba, terutama ketika kepala saya bergesekan dengan sandaran kursi. Mungkin bisa diperbaiki dengan membuat sudut belok yang lebih lembut.</p>
                             </div>
                             <div class="blog-view-box">
                                 <div class="media">
@@ -188,10 +178,7 @@
                         </div>
                         <div class="item">
                             <div class="blog-box">
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                    has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                    printer took a galley of type and scrambled it to make a type specimen book. It has
-                                    survived not only</p>
+                                <p>Bagian yang saya kurang sukai adalah saat wahana berbelok dengan tiba-tiba, terutama ketika kepala saya bergesekan dengan sandaran kursi. Mungkin bisa diperbaiki dengan membuat sudut belok yang lebih lembut.</p>
                             </div>
                             <div class="blog-view-box">
                                 <div class="media">

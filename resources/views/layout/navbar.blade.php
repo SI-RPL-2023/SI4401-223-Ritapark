@@ -12,7 +12,7 @@
             <li class="nav-item"><a href="daftarHotel.php" class="nav-link active px-2">Tentang Kami</a></li>
             <li class="nav-item"><a href="aboutUs.php" class="nav-link active px-2">Wahana</a></li>
             <li class="nav-item"><a href="aboutUs.php" class="nav-link active px-2">Promo</a></li>
-            <li class="nav-item"><a href="aboutUs.php" class="nav-link active px-2">Promo</a></li>
+            <li class="nav-item"><a href="aboutUs.php" class="nav-link active px-2">Beli tiket</a></li>
             
         </ul>
 
