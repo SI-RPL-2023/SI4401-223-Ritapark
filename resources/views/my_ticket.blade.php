@@ -1,5 +1,5 @@
 @extends('partials.template')
-@include('layout.contactus')
+
 @section('content')
 @php
     function rupiah($angka){
@@ -32,4 +32,4 @@
         </div>
     </section>
 @endsection
-.
+...
