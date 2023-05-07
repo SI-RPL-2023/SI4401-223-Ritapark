@@ -15,6 +15,7 @@ class Booking extends Model
         "ticket_id",
         "date",
         "qty",
+        "bukti_pembayaran",
         "status",
     ];
 

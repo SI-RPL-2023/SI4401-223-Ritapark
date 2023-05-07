@@ -23,7 +23,7 @@ use App\Http\Middleware;
 |
 */
 
-Route::get('/', [FrontendController::class,'index'])->name('home');
+Route::get('/', [FrontendController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ["Role"], 'as' => 'adm.'], function () {
     Route::get('/admin', [DashboardController::class, 'index'])->name('dashboard');
@@ -32,6 +32,7 @@ Route::group(['middleware' => ["Role"], 'as' => 'adm.'], function () {
     Route::get('/admin/ticket/delete/{id}', [TicketController::class, 'destroy'])->name('ticket.hapus');
     Route::get('/admin/wahana/delete/{id}', [WahanaController::class, 'destroy'])->name('wahana.hapus');
     Route::get('/admin/booking', [BookingController::class, 'index'])->name('booking.index');
+    Route::put('/admin/booking/konfirmasi/{id}', [BookingController::class, 'konfirmasi'])->name('booking.konfirmasi');
 });
 
 // Route::get('/', [UserController::class, 'welcome'])->name('welcome');
@@ -51,7 +52,9 @@ Route::get('/my_ticket', [TicketsController::class,'my_ticket'])->name('my_ticke
 
 Route::post('/booking_store', [TicketsController::class,'booking_store'])->name('booking.store');
 Route::get('/payment/{id}', [TicketsController::class,'payment'])->name('payment');
-Route::post('/booking_confirmation', [TicketsController::class,'booking_confirmation'])->name('booking.confirmation');
+Route::get('/payment2/{id}', [TicketsController::class, 'payment2'])->name('payment2');
+Route::put('/payment_confirmation', [TicketsController::class, 'payment_confirmation'])->name('payment.confirmation');
 Route::get('/ticket/{id}', [TicketsController::class,'ticket'])->name('ticket');
 
+Route::post('/booking_confirmation', [TicketsController::class, 'booking_confirmation'])->name('booking.confirmation');
 Route::post('/add_testimoni', [TestimoniController::class, 'store'])->name('testimoni.store');
