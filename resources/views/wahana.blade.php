@@ -1,5 +1,5 @@
 @extends('partials.template')
-@include('layout.contactus')
+@include('layout.contactus') 
 @section('content')
     <!--end-->
     <section class="image-head-wrapper" style="background-image: url('images/carousel2.jpg');">
