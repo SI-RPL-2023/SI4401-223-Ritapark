@@ -12,17 +12,19 @@
     <!--gallery block--->
     <section class="gallery-block gallery-front">
         <div class="container">
-            <div class="row">
+            <div class="row d-flex">
+                @foreach ($wahana as $item)
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                     <div class="gallery-image">
-                        <img class="img-responsive" src="images/bianglala.jpg">
+                        <img class="img-responsive" src="{{ $item->foto }}">
                         <div class="overlay">
-                            <a class="info pop example-image-link img-responsive" href="images/bianglala.jpg" data-lightbox="example-1"><i class="fa fa-search" aria-hidden="true"></i></a>
-                            <p><a>Bianglala</a></p>
+                            <a class="info pop example-image-link img-responsive" href="{{ $item->foto }}" data-lightbox="example-1"><i class="fa fa-search" aria-hidden="true"></i></a>
+                            <p><a>{{ $item->nama }}</a></p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                @endforeach
+                {{-- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                     <div class="gallery-image">
                         <img class="img-responsive" src="images/tornado.jpg">
                         <div class="overlay">
@@ -48,7 +50,7 @@
                             <p><a>Kicir-Kicir</a></p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>

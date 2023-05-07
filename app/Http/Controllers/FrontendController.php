@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Ticket;
 use App\Models\Booking;
+use App\Models\Wahana;
 use Illuminate\Support\Facades\Auth;
 
 class FrontendController extends Controller
@@ -21,7 +22,8 @@ class FrontendController extends Controller
 
     public function wahana()
     {
-        return view('wahana');
+        $wahana = Wahana::all();
+        return view('wahana', compact('wahana'));
     }
     
     public function promo()
