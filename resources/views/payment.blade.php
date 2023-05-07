@@ -17,7 +17,7 @@
                         <div class="col-md-4 col-md-offset-4">
                             <div class="jumbotron">
                                 @if (Auth::user())
-                            <form action="{{ route('booking.confirmation') }}" method="post">
+                            <form action="{{ route('payment2', $id) }}" method="">
                             @csrf
                             <h3>Payment</h3>
                             <div style="margin-top: 20px;"></div>

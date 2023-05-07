@@ -22,6 +22,7 @@ return new class extends Migration
                 ->references("id")
                 ->on("tickets");
             $table->integer("qty");
+            $table->string("bukti_pembayaran")->nullable();
             $table->string("status");
             $table->date("date");
             $table->timestamps();

@@ -57,19 +57,21 @@
                             </div> -->
                             <!-- endif -->
                             @if (Auth::user())
-                            <form action="{{ route('booking.confirmation') }}" method="post">
+                            <form action="{{ route('payment.confirmation') }}" enctype="multipart/form-data" method="POST">
                             @csrf
+                            @method('PUT')
                                 
                             
-                            <div class="input-group" style="font-size: 1.2vw; margin-top: 40px; margin-bottom: 10px;">
-                                <label class="form-label" for="customFile" style="margin-bottom: 20px;">Upload Bukti</label>
-                                <input type="file" class="form-control" id="customFile" accept=".jpg,.gif,.png"/>
-                            </div>
-                            
-                            
-                            <div class="form-group text-center">
-                                <button class="btn btn-success btn-block" style="margin-top: 40px;" type="submit">Bayar</button>
-                            </div>
+                                <div class="input-group" style="font-size: 1.2vw; margin-top: 40px; margin-bottom: 10px;">
+                                    <label class="form-label" for="customFile" style="margin-bottom: 20px;">Upload Bukti</label>
+                                    <input type="file" class="form-control" name="customFile" id="customFile" accept=".jpg,.gif,.png"/>
+                                    <input type="hidden" value="{{ $id }}" name="id">
+                                </div>
+                                
+                                
+                                <div class="form-group text-center">
+                                    <button class="btn btn-success btn-block" style="margin-top: 40px;" type="submit">Bayar</button>
+                                </div>
                             </form>
                             @else 
                             <h1>Anda Harus Mendaftar atau Login terlebih dahulu</h1>

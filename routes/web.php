@@ -22,7 +22,7 @@ use App\Http\Middleware;
 |
 */
 
-Route::get('/', [FrontendController::class,'index'])->name('home');
+Route::get('/', [FrontendController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ["Role"], 'as' => 'adm.'], function () {
     Route::get('/admin', [DashboardController::class, 'index'])->name('dashboard');
@@ -31,6 +31,7 @@ Route::group(['middleware' => ["Role"], 'as' => 'adm.'], function () {
     Route::get('/admin/ticket/delete/{id}', [TicketController::class, 'destroy'])->name('ticket.hapus');
     Route::get('/admin/wahana/delete/{id}', [WahanaController::class, 'destroy'])->name('wahana.hapus');
     Route::get('/admin/booking', [BookingController::class, 'index'])->name('booking.index');
+    Route::put('/admin/booking/konfirmasi/{id}', [BookingController::class, 'konfirmasi'])->name('booking.konfirmasi');
 });
 
 // Route::get('/', [UserController::class, 'welcome'])->name('welcome');
@@ -40,14 +41,17 @@ Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 Route::post('/register/attempt', [UserController::class, 'registerScript'])->name('registerS');
 
-Route::get('/booking', [TicketsController::class,'booking'])->name('booking');
-Route::get('/about', [FrontendController::class,'about'])->name('about');
-Route::get('/wahana', [FrontendController::class,'wahana'])->name('wahana');
-Route::get('/promo', [FrontendController::class,'promo'])->name('promo');
-Route::get('/contact', [FrontendController::class,'contact'])->name('contact');
-Route::get('/my_ticket', [TicketsController::class,'my_ticket'])->name('my_ticket');
+Route::get('/booking', [TicketsController::class, 'booking'])->name('booking');
+Route::get('/about', [FrontendController::class, 'about'])->name('about');
+Route::get('/wahana', [FrontendController::class, 'wahana'])->name('wahana');
+Route::get('/promo', [FrontendController::class, 'promo'])->name('promo');
+Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
+Route::get('/my_ticket', [TicketsController::class, 'my_ticket'])->name('my_ticket');
 
-Route::post('/booking_store', [TicketsController::class,'booking_store'])->name('booking.store');
-Route::get('/payment/{id}', [TicketsController::class,'payment'])->name('payment');
-Route::post('/booking_confirmation', [TicketsController::class,'booking_confirmation'])->name('booking.confirmation');
-Route::get('/ticket/{id}', [TicketsController::class,'ticket'])->name('ticket');
+Route::post('/booking_store', [TicketsController::class, 'booking_store'])->name('booking.store');
+Route::get('/payment/{id}', [TicketsController::class, 'payment'])->name('payment');
+Route::put('/payment_confirmation', [TicketsController::class, 'payment_confirmation'])->name('payment.confirmation');
+Route::get('/payment2/{id}', [TicketsController::class, 'payment2'])->name('payment2');
+
+Route::post('/booking_confirmation', [TicketsController::class, 'booking_confirmation'])->name('booking.confirmation');
+Route::get('/ticket/{id}', [TicketsController::class, 'ticket'])->name('ticket');

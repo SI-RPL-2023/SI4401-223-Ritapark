@@ -31,6 +31,11 @@
                                     <th>
                                         Status
                                     </th>
+                                    <th>
+                                        Bukti Pembayaran
+                                    </th>
+                                    <th>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -42,6 +47,14 @@
                                         <td>{{ $item->qty }}</td>
                                         <td>{{ $item->date }}</td>
                                         <td>{{ $item->status == 1 ? 'Success' : 'Pending' }}</td>
+                                        <td><a href="{{ asset($item->bukti_pembayaran) }}" target="_blank">Lihat</a></td>
+                                        <td>
+                                            <form action="{{ route('adm.booking.konfirmasi', $item->id) }}" method="POST" enctype="multipart/form-data">
+                                                @csrf
+                                                @method('PUT')
+                                                <button type="submit" class="btn btn-success">Konfirmasi</button>
+                                            </form>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
