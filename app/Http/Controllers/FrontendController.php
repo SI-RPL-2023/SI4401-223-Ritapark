@@ -6,13 +6,16 @@ use Illuminate\Http\Request;
 use App\Models\Ticket;
 use App\Models\Booking;
 use App\Models\Wahana;
+use App\Models\Testimoni;
+
 use Illuminate\Support\Facades\Auth;
 
 class FrontendController extends Controller
 {
     public function index()
     {
-        return view('home');
+        $testimonis = Testimoni::latest()->take(3)->get();
+        return view('home', compact('testimonis'));
     }
 
     public function about()
@@ -25,7 +28,7 @@ class FrontendController extends Controller
         $wahana = Wahana::all();
         return view('wahana', compact('wahana'));
     }
-    
+
     public function promo()
     {
         return view('promo');
@@ -34,5 +37,10 @@ class FrontendController extends Controller
     public function contact()
     {
         return view('contact');
+    }
+
+    public function testimoni()
+    {
+        return view('testimoni');
     }
 }
