@@ -18,7 +18,7 @@
                             <div class="jumbotron fluid">
                             <h4>Silahkan scan qr code berikut</h4>
                             <div style="margin-top: 20px;">
-                                <image src="images/qr.png" style="width: 95%;">
+                                <image src="{{ asset('images/qr.png') }}" style="width: 95%;">
                             </div>
                             <div style="margin-top: 20px;">
                                 <p style="font-weight: bold;">Nominal harus dibayarkan</p>
