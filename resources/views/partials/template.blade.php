@@ -64,7 +64,7 @@
             @yield('content')
 
             <!---footer--->
-            <footer>
+            <footer style="min-height: 35vh">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3 col-sm-6 col-xs-12 width-set-50">

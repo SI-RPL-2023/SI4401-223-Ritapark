@@ -35,6 +35,18 @@ Route::group(['middleware' => ["Role"], 'as' => 'adm.'], function () {
     Route::put('/admin/booking/konfirmasi/{id}', [BookingController::class, 'konfirmasi'])->name('booking.konfirmasi');
 });
 
+Route::get('/profile', function () {
+    return view('profile');
+});
+
+Route::get('/profile/ubah', function () {
+    return view('profile-ubah');
+});
+
+Route::get('/profile/password', function () {
+    return view('profile-password');
+});
+
 // Route::get('/', [UserController::class, 'welcome'])->name('welcome');
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/login-attempt', [UserController::class, 'loginScript'])->name('loginS');
