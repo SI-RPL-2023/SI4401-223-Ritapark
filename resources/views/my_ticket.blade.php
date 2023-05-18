@@ -22,7 +22,16 @@
                                 <div class="panel-body"><h4>{{ $item->nama }} - <span class="text-success">{{ rupiah($item->harga) }}</span></h4></div>
                                 <div class="panel-body" style="margin-top: -15px">{{ $item->deskripsi }}</div>
                                 <div class="panel-body" style="margin-top: -15px">Qty : {{ $item->qty }}</div>
-                                <div class="panel-body" style="margin-top: -15px"><a href="{{ route('ticket',$item->id) }}" class="btn btn-success">View</a></div>
+                                <div class="" style="margin-top: -15px; display: flex; justify-content: space-between; align-items: center; padding:15px;">
+                                    <a href="{{ $item->status ? route('ticket',$item->id) : '' }}" class="btn {{ $item->status ? 'btn-success active' : 'btn-default' }}" @disabled($item->status ? false : true)>View</a>
+                                    <p class="d-flex justify-content-between align-items-center">
+                                        @if ($item->status == 0)
+                                            <span class="text-muted h5" style="text">Menunggu Konfirmasi</span>
+                                        @else
+                                            <span class="text-success h5">Tiket telah terbit</span>
+                                        @endif
+                                    </p>
+                                </div>
                             </div>
                         </div>
                         @endforeach

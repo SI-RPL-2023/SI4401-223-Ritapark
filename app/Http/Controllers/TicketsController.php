@@ -20,9 +20,9 @@ class TicketsController extends Controller
                     'tickets.nama',
                     'tickets.harga',
                     'tickets.deskripsi',
+                    'bookings.status',
                     'bookings.qty'
                 )
-                ->where('status', 1)
                 ->get();
             return view('my_ticket', compact('data'));
         } else {
