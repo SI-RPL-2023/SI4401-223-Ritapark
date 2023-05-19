@@ -66,7 +66,7 @@ class UserController extends Controller
         $user->role = 'user';
         $user->save();
 
-        return redirect()->route('login');
+        return redirect()->route('login')->with(['berhasil' => 'Berhasil Daftar, Silahkan login']);
     }
 
     public function loginScript(Request $request)
@@ -100,7 +100,7 @@ class UserController extends Controller
                     return redirect()->route('home');
                 }
             } else {
-                return redirect()->route('login')->with(['error' => 'Wrong username or password!']);
+                return redirect()->route('login')->with(['error' => 'Email atau password salah!']);
             }
         } catch (QueryException $e) {
             // return response()->json([
