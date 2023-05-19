@@ -14,10 +14,10 @@
             <div class="col-md-6">
               <div class="card-body p-4 p-lg-5 text-black">
 
-                <form action="{{route('loginS')}}" method="POST">
+                <form action="{{route('forgotS')}}" method="POST">
                   @csrf
 
-                  <h1 class="fw-bold mb-3 pb-3" style="letter-spacing: 1px;">LOGIN</h1>
+                  <h2 class="fw-bold mb-3 pb-3" style="letter-spacing: 1px;">Lupa Password</h2>
 
                   @if(session('error'))
                     <div class="alert alert-danger">
@@ -30,24 +30,18 @@
                       {{ session('berhasil') }}
                     </div>
                   @endif
-                  <div class="form-outline mb-4">
-                    <label class="form-label" for="form2Example17">Email address</label>
-                    <input type="email" name="email" id="form2Example17" class="form-control form-control-lg" required>
-                  </div>
 
                   <div class="form-outline mb-4">
-                    <label class="form-label" for="form2Example27">Password</label>
-                    <input type="password" name="password" id="form2Example27" class="form-control form-control-lg" minlength="8" 
-                    oninvalid="this.setCustomValidity('Password harus minimal 8 karakter')" oninput="this.setCustomValidity('')" required>
-                    <a class="small text-muted" href="{{route('forgot')}}">Lupa password?</a>
+                    <label class="form-label" for="form2Example17">Email : </label>
+                    <input type="email" name="email" id="form2Example17" class="form-control form-control-lg" required>
+                    <small>Kami akan mengirimkan instruksi ke email anda jika email terdaftar</small>
                   </div>
 
                   <div class="button pt-1 mb-4">
-                    <button class="btn btn-dark btn-lg btn-block" type="submit" name="login" value="Login">Login</button>
+                    <button class="btn btn-dark btn-block" type="submit" name="login" value="Kirim">Kirim</button>
                   </div>
-
                   
-                  <p class="mb-5 pb-lg-2" style="color: #393f81;">Belum memiliki akun? <a href="{{route('register')}}"
+                  <p class="mb-5 pb-lg-2" style="color: #393f81;">Kembali ke halaman login? <a href="{{route('login')}}"
                       style="color: #393f81;">Klik disini</a></p>
                 </form>
 
@@ -59,3 +53,5 @@
     </div>
   </div>
 </section>
+@endsection
+
