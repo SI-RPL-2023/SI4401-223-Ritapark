@@ -58,3 +58,5 @@ Route::get('/ticket/{id}', [TicketsController::class,'ticket'])->name('ticket');
 
 Route::post('/booking_confirmation', [TicketsController::class, 'booking_confirmation'])->name('booking.confirmation');
 Route::post('/add_testimoni', [TestimoniController::class, 'store'])->name('testimoni.store');
+
+Route::view('/refund', 'refund');
