@@ -47,11 +47,13 @@
                             <div class="col-md-2 col-sm-4 col-xs-12 hidden-sm" style="margin-left: -120px;margin-top:10px">
                                 @if (Auth::user())
                                 <div class="text-right"><a href="{{ route('my_ticket') }}" class="masuk-btn">My Ticket</a></div>
+                                @else
+                                <div class="text-right"><a href="{{ route('my_ticket') }}" class="masuk-btn" style="opacity: 0; pointer-events: none;">My Ticket</a></div>
                                 @endif
                             </div>
                             <div class="col-md-2  col-sm-4 col-xs-12 hidden-sm" style="margin-top: -17px">
                                 @if (Auth::user())
-                                <div class="text-right"><a href="{{ route('logout') }}" class="masuk-btn">Logout</a></div>
+                                <div class="text-right"><a href="{{ route('profile') }}" class="masuk-btn">Akun</a></div>
                                 @else
                                 <div class="text-right"><a href="{{ route('login') }}" class="masuk-btn">Masuk</a></div>
                                 @endif
@@ -64,7 +66,7 @@
             @yield('content')
 
             <!---footer--->
-            <footer>
+            <footer style="min-height: 35vh">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3 col-sm-6 col-xs-12 width-set-50">

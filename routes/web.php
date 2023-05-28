@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\TicketController;
 use App\Http\Controllers\Admin\BookingController;
 use App\Http\Controllers\Admin\WahanaController;
 use App\Http\Controllers\TestimoniController;
+use App\Http\Controllers\ForgotPassController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Middleware;
 
 /*
@@ -35,6 +37,15 @@ Route::group(['middleware' => ["Role"], 'as' => 'adm.'], function () {
     Route::put('/admin/booking/konfirmasi/{id}', [BookingController::class, 'konfirmasi'])->name('booking.konfirmasi');
 });
 
+Route::get('/profile', [ProfileController::class,'profile'])->name('profile');
+Route::get('/profile/ubah', [ProfileController::class,'profileubah'])->name('profileubah');
+
+Route::post('/profile/ubah/attempt', [ProfileController::class,'profileubahattempt'])->name('profileubahattempt');
+
+Route::get('/profile/password', [ProfileController::class,'resetpassword'])->name('resetpassword');
+Route::post('/profile/password/attempt', [ProfileController::class,'resetattempt'])->name('resetattempt');
+// Route::post('/forgotS', [ForgotPassController::class,'forgotS'])->name('forgotS');
+
 // Route::get('/', [UserController::class, 'welcome'])->name('welcome');
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/login-attempt', [UserController::class, 'loginScript'])->name('loginS');
@@ -59,4 +70,8 @@ Route::get('/ticket/{id}', [TicketsController::class,'ticket'])->name('ticket');
 Route::post('/booking_confirmation', [TicketsController::class, 'booking_confirmation'])->name('booking.confirmation');
 Route::post('/add_testimoni', [TestimoniController::class, 'store'])->name('testimoni.store');
 
+
 Route::view('/refund', 'refund');
+
+Route::get('/forgot', [ForgotPassController::class,'forgot'])->name('forgot');
+Route::post('/forgotS', [ForgotPassController::class,'forgotS'])->name('forgotS');
