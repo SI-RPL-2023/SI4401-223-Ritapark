@@ -70,5 +70,8 @@ Route::get('/ticket/{id}', [TicketsController::class,'ticket'])->name('ticket');
 Route::post('/booking_confirmation', [TicketsController::class, 'booking_confirmation'])->name('booking.confirmation');
 Route::post('/add_testimoni', [TestimoniController::class, 'store'])->name('testimoni.store');
 
+
+Route::view('/refund', 'refund');
+
 Route::get('/forgot', [ForgotPassController::class,'forgot'])->name('forgot');
 Route::post('/forgotS', [ForgotPassController::class,'forgotS'])->name('forgotS');

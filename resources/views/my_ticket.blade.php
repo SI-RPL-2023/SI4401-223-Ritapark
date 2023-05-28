@@ -40,5 +40,8 @@
             </div>
         </div>
     </section>
+    <div class="text-center" style="margin-top: 30px;">           
+        <a href="refund">Refund Tiket</a>
+    </div>
 @endsection
 ...
