@@ -10,6 +10,10 @@ use App\Http\Controllers\Admin\TicketController;
 use App\Http\Controllers\Admin\BookingController;
 use App\Http\Controllers\Admin\WahanaController;
 use App\Http\Controllers\TestimoniController;
+use App\Http\Controllers\ForgotPassController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PromoController;
+
 use App\Http\Middleware;
 
 /*
@@ -33,19 +37,26 @@ Route::group(['middleware' => ["Role"], 'as' => 'adm.'], function () {
     Route::get('/admin/wahana/delete/{id}', [WahanaController::class, 'destroy'])->name('wahana.hapus');
     Route::get('/admin/booking', [BookingController::class, 'index'])->name('booking.index');
     Route::put('/admin/booking/konfirmasi/{id}', [BookingController::class, 'konfirmasi'])->name('booking.konfirmasi');
+    Route::get('/admin/roles', [DashboardController::class, 'RolesView'])->name('RolesView');
+    Route::post('/admin/roles/{id}', [DashboardController::class, 'update'])->name('update');
+    Route::delete('admin/roles/hapus/{id}', [DashboardController::class, 'hapus'])->name('hapus');
+
+    Route::get('/admin/promo', [PromoController::class, 'index'])->name('promo.index');
+    Route::get('/admin/promo/create', [PromoController::class, 'create'])->name('promo.create');
+    Route::post('/admin/promo', [PromoController::class, 'store'])->name('promo.store');
+    Route::get('/admin/promo/{promo}/edit', [PromoController::class, 'edit'])->name('promo.edit');
+    Route::put('/admin/promo/{promo}', [PromoController::class, 'update'])->name('promo.update');
+    Route::delete('/admin/promo/{promo}', [PromoController::class, 'destroy'])->name('promo.destroy');
 });
 
-Route::get('/profile', function () {
-    return view('profile');
-});
+Route::get('/profile', [ProfileController::class,'profile'])->name('profile');
+Route::get('/profile/ubah', [ProfileController::class,'profileubah'])->name('profileubah');
 
-Route::get('/profile/ubah', function () {
-    return view('profile-ubah');
-});
+Route::post('/profile/ubah/attempt', [ProfileController::class,'profileubahattempt'])->name('profileubahattempt');
 
-Route::get('/profile/password', function () {
-    return view('profile-password');
-});
+Route::get('/profile/password', [ProfileController::class,'resetpassword'])->name('resetpassword');
+Route::post('/profile/password/attempt', [ProfileController::class,'resetattempt'])->name('resetattempt');
+// Route::post('/forgotS', [ForgotPassController::class,'forgotS'])->name('forgotS');
 
 // Route::get('/', [UserController::class, 'welcome'])->name('welcome');
 Route::get('/login', [UserController::class, 'login'])->name('login');
@@ -64,9 +75,15 @@ Route::get('/my_ticket', [TicketsController::class,'my_ticket'])->name('my_ticke
 
 Route::post('/booking_store', [TicketsController::class,'booking_store'])->name('booking.store');
 Route::get('/payment/{id}', [TicketsController::class,'payment'])->name('payment');
-Route::get('/payment2/{id}', [TicketsController::class, 'payment2'])->name('payment2');
+Route::post('/payment2/{id}', [TicketsController::class, 'payment2'])->name('payment2');
+Route::get('/bayarTiket/{id}', [TicketsController::class, 'tiketBayar'])->name('tiketBayar');
 Route::put('/payment_confirmation', [TicketsController::class, 'payment_confirmation'])->name('payment.confirmation');
 Route::get('/ticket/{id}', [TicketsController::class,'ticket'])->name('ticket');
 
 Route::post('/booking_confirmation', [TicketsController::class, 'booking_confirmation'])->name('booking.confirmation');
 Route::post('/add_testimoni', [TestimoniController::class, 'store'])->name('testimoni.store');
+
+Route::get('/forgot', [ForgotPassController::class,'forgot'])->name('forgot');
+Route::post('/forgotS', [ForgotPassController::class,'forgotS'])->name('forgotS');
+Route::get('/promo', [PromoController::class, 'halamanPromo'])->name('halamanPromo');
+Route::get('/booking/promo/{kode_promo}', [TicketsController::class,'bookingPromo'])->name('bookingPromo');

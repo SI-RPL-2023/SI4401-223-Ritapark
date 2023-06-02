@@ -116,11 +116,11 @@ body widget .-bold {
       <div class="deetz --flex-row-j!sb">
          <div class="event --flex-column">
             <div class="date">{{  Carbon\Carbon::parse($data->date)->format('d F Y')}}</div>
-            <div class="location -bold">Ancol Jakarta</div>
+            <div class="location -bold">Rita Park</div>
          </div>
          <div class="price --flex-column">
             <div class="label">Price</div>
-            <div class="cost -bold">{{ $data->harga * $data->qty }}</div>
+            <div class="cost -bold">{{ $data->total_harga}}</div>
          </div> 
       </div> 
    </div>
