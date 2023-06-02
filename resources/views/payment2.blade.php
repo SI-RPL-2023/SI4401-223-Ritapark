@@ -22,7 +22,7 @@
                             </div>
                             <div style="margin-top: 20px;">
                                 <p style="font-weight: bold;">Nominal harus dibayarkan</p>
-                                <p style="font-size: 1.8vw; font-weight: bold;">Rp. {{ $data->qty * $data->harga }}</p>
+                                <p style="font-size: 1.8vw; font-weight: bold;">Rp. {{ $data->total_harga }}</p>
                             </div>
 
                             <div style="margin-top: 40px;" style="font-size: 0.9vw;">
@@ -43,7 +43,7 @@
                             
                                 <div class="input-group" style="font-size: 1.2vw; margin-top: 40px; margin-bottom: 10px;">
                                     <label class="form-label" for="customFile" style="margin-bottom: 20px;">Upload Bukti</label>
-                                    <input type="file" class="form-control" name="customFile" id="customFile" accept=".jpg,.gif,.png"/>
+                                    <input type="file" class="form-control" name="customFile" id="customFile" accept=".jpg,.gif,.png" required/>
                                     <input type="hidden" value="{{ $id }}" name="id">
                                 </div>
                                 

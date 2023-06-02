@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             TicketSeeder::class,
             TestimoniSeeder::class,
             WahanaSeeder::class,
+            PromoSeeder::class,
         ]);
     }
 }
