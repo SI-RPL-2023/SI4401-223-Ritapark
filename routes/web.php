@@ -51,6 +51,7 @@ Route::group(['middleware' => ["Role"], 'as' => 'adm.'], function () {
 
     Route::get('/admin/refund', [RefundController::class, 'adminConfirmation'])->name('refundConfirmation');
     Route::post('/admin/refund/{refundId}/confirm', [RefundController::class, 'confirmRefund'])->name('refundconfirm');
+    Route::post('/admin/refund/{refundId}/tolak', [RefundController::class, 'tolakRefund'])->name('refundtolak');
 });
 
 Route::get('/profile', [ProfileController::class,'profile'])->name('profile');

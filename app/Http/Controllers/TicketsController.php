@@ -138,7 +138,6 @@ class TicketsController extends Controller
     {
         // Memvalidasi request
         $request->validate([
-            'customFile' => 'required|image|max:2048', // Hanya menerima file gambar dengan ukuran maksimal 2 MB
             'id' => 'required|exists:bookings,id', // Memastikan bahwa id yang dimasukkan ada di database
         ]);
 

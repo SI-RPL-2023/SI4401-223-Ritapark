@@ -13,8 +13,6 @@ return new class extends Migration
     {
         Schema::create('refund', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('ticket_id');
-            $table->foreign('ticket_id')->references('id')->on('tickets');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('booking_id');
@@ -22,6 +20,9 @@ return new class extends Migration
             $table->string('alasan');
             $table->string('nama_user');
             $table->string('email_user');
+            $table->string('rekening');
+            $table->string('metode');
+            $table->string('nama_rekening');
             $table->boolean('is_confirmed')->default(false);
             $table->timestamps();
         });
