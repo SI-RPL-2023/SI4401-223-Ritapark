@@ -14,9 +14,8 @@
                             {{ session('error') }}
                         </div>
                     @endif
-                    <form action="{{ route('adm.promo.update', $promo->id) }}" method="POST">
+                    <form action="{{ route('adm.promo.update', $promo->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        @method('PUT')
                     
                         <div class="form-group">
                             <label for="nama">Nama</label>
@@ -43,15 +42,18 @@
                             <input type="number" name="potongan" class="form-control" required max="100" value="{{ $promo->potongan }}" required>
                             <small class="form-text text-muted">Potongan dalam "%". Jika input 10 maka akan menjadi 10%. Pastikan angka tidak melebihi 100.</small>
                         </div>
-                        <!-- <div class="form-group">
-                            <label for="potongan">Potongan</label>
-                            <input type="text" name="potongan" id="potongan" class="form-control" value="{{ $promo->potongan }}" required>
-                        </div> -->
+                        
                         <div class="form-group">
                             <label for="kuota_promo">Kuota Promo</label>
                             <input type="text" name="kuota_promo" id="kuota_promo" class="form-control" value="{{ $promo->kuota_promo }}" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Update</button>
+
+                        <div class="form-group">
+                            <label for="image">Upload Gambar :</label>
+                            <input type="file" class="form-control h-100" id="image" name="image" accept=".jpg,.gif,.png,.webp">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Ubah</button>
                     </form>
                 </div>
             </div>

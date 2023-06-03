@@ -21,6 +21,7 @@ return new class extends Migration {
             $table->unsignedInteger("potongan");
             $table->unsignedInteger("kuota_promo");
             $table->unsignedInteger("terpakai_promo")->default(0);
+            $table->string("gambar_promo");
             $table->timestamps();
         });
     }

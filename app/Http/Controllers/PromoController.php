@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Promo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 use Carbon\Carbon;
 
@@ -20,6 +21,13 @@ class PromoController extends Controller
         $promos = Promo::all();
 
         return view('admin.promo.index', compact('promos'));
+    }
+
+    public function halamanPromo()
+    {
+        $promos = Promo::where('status', 'Aktif')->get();
+        
+        return view('promo', compact('promos'));
     }
 
     /**
@@ -66,6 +74,10 @@ class PromoController extends Controller
             return redirect()->route('admin.promo.create')->with(['tanggal_selesai' => 'Tanggal selesai harus setelah tanggal mulai.']);
         }
 
+        $gambar = $request->file('image')->store('gambar_promo', 'public');
+
+        $validatedData['gambar'] = $gambar;
+
         Promo::create($validatedData);
 
         return redirect()->route('adm.promo.index')->with('success', 'Promo created successfully.');
@@ -108,12 +120,19 @@ class PromoController extends Controller
             'kode_promo' => 'required',
             'potongan' => 'required',
             'kuota_promo' => 'required|integer',
+            'image' => 'image|mimes:jpeg,png,jpg,webp',
         ]);
 
+        if ($request->hasfile('image')) {
+            $img = Storage::disk('public')->put('img', $request->file('image'));
+            $promo->gambar_promo = $img;
+            $promo->save();
+        }
+        
         Session::flash('error', 'Tanggal selesai harus setelah tanggal mulai.');
         $promo->update($validatedData);
 
-        return redirect()->route('adm.promo.index')->with('success', 'Promo updated successfully.');
+        return redirect()->route('adm.promo.index')->with('success', 'Promo berhasil diubah');
     }
 
     /**
@@ -126,6 +145,6 @@ class PromoController extends Controller
     {
         $promo->delete();
 
-        return redirect()->route('adm.promo.index')->with('success', 'Promo deleted successfully.');
+        return redirect()->route('adm.promo.index')->with('delete', 'Promo berhasil dihapus');
     }
 }

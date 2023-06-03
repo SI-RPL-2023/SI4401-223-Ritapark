@@ -9,7 +9,7 @@
                     <p class="card-description">
                         Form ini digunakan untuk menambahkan Promo baru
                     </p>
-                    <form action="{{ route('adm.promo.store') }}" method="POST">
+                    <form action="{{ route('adm.promo.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @if(Session::has('error'))
                             <div class="alert alert-danger">
@@ -45,10 +45,17 @@
                             <label for="kuota_promo">Kuota Promo:</label>
                             <input type="text" name="kuota_promo" class="form-control" required>
                         </div>
+                        <div class="form-group">
+                            <label for="image">Upload gambar :</label>
+                            <input type="file" class="form-control h-100" name="image" id="image" accept=".jpg,.gif,.png,.webp"/>
+                        </div> 
+                        
                         <button type="submit" class="btn btn-primary">Create</button>
                     </form>
                 </div>
             </div>
+            
         </div>
     </div>
 @endsection
+

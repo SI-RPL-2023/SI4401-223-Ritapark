@@ -22,6 +22,7 @@ class Promo extends Model
     "potongan",
     "kuota_promo",
     "terpakai_promo",
+    "gambar_promo",
   ];
 
   protected $dates = [
