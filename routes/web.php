@@ -45,7 +45,7 @@ Route::group(['middleware' => ["Role"], 'as' => 'adm.'], function () {
     Route::get('/admin/promo/create', [PromoController::class, 'create'])->name('promo.create');
     Route::post('/admin/promo', [PromoController::class, 'store'])->name('promo.store');
     Route::get('/admin/promo/{promo}/edit', [PromoController::class, 'edit'])->name('promo.edit');
-    Route::put('/admin/promo/{promo}', [PromoController::class, 'update'])->name('promo.update');
+    Route::post('/admin/promo/{promo}', [PromoController::class, 'update'])->name('promo.update');
     Route::delete('/admin/promo/{promo}', [PromoController::class, 'destroy'])->name('promo.destroy');
 });
 
@@ -85,3 +85,5 @@ Route::post('/add_testimoni', [TestimoniController::class, 'store'])->name('test
 
 Route::get('/forgot', [ForgotPassController::class,'forgot'])->name('forgot');
 Route::post('/forgotS', [ForgotPassController::class,'forgotS'])->name('forgotS');
+Route::get('/promo', [PromoController::class, 'halamanPromo'])->name('halamanPromo');
+Route::get('/booking/promo/{kode_promo}', [TicketsController::class,'bookingPromo'])->name('bookingPromo');
