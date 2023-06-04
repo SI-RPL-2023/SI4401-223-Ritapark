@@ -1,6 +1,7 @@
 @extends('partials.template')
 @include('layout.contactus')
 @section('content')
+{{-- {{ dd($testimonis[0]->rating) }} --}}
     <!--end-->
     <div id="myCarousel1" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
@@ -13,22 +14,22 @@
         <div class="carousel-inner">
             <div class="item active"> <img src="images/carousel1.jpg" style="width:100%; height: 500px" alt="First slide">
                 <!-- <div class="carousel-caption">
-                                <h1>Welcome To Rita Park</h1>
-                            </div> -->
+                                                        <h1>Welcome To Rita Park</h1>
+                                                    </div> -->
             </div>
             <div class="item"> <img src="images/carousel2.jpg" style="width:100%; height: 500px" alt="Second slide">
                 <!-- <div class="carousel-caption">
-                                <h1>Welcome To Rita Park</h1>
-                            </div> -->
+                                                        <h1>Welcome To Rita Park</h1>
+                                                    </div> -->
             </div>
             <div class="item"> <img src="images/carousel3.jpg" style="width:100%; height: 500px" alt="Third slide">
                 <!-- <div class="carousel-caption">
-                                <h1>Welcome To Rita Park</h1>
-                            </div> -->
+                                                        <h1>Welcome To Rita Park</h1>
+                                                    </div> -->
             </div>
         </div>
         <!-- <a class="left carousel-control" href="#myCarousel1" data-slide="prev"> <img src="images/icons/left-arrow.png" onmouseover="this.src = 'images/icons/left-arrow-hover.png'" onmouseout="this.src = 'images/icons/left-arrow.png'" alt="left"></a>
-                    <a class="right carousel-control" href="#myCarousel1" data-slide="next"><img src="images/icons/right-arrow.png" onmouseover="this.src = 'images/icons/right-arrow-hover.png'" onmouseout="this.src = 'images/icons/right-arrow.png'" alt="left"></a> -->
+                                            <a class="right carousel-control" href="#myCarousel1" data-slide="next"><img src="images/icons/right-arrow.png" onmouseover="this.src = 'images/icons/right-arrow-hover.png'" onmouseout="this.src = 'images/icons/right-arrow.png'" alt="left"></a> -->
     </div>
     <div class="clearfix"></div>
 
@@ -41,7 +42,7 @@
                         <div class="promo-offer-details">
                             <h1>Promo Spesial</h1>
                             <!-- <h4>Lorem ipsum dolor sit amet, conse ctetuer adipiscing elit.</h4> -->
-                            <button type="button" class="btn btn-default">Lihat Promo</button>
+                            <a href="{{ route('halamanPromo') }}" class="btn btn-default">Lihat Promo</a>
                         </div>
                     </div>
                 </div>
@@ -65,7 +66,8 @@
                     <div class="side-B">
                         <div class="product-desc-side">
                             <h3><a>Bianglala</a></h3>
-                            <p>wahana rekreasi yang berbentuk roda besar yang berputar dengan lambat dan berisi beberapa gerbong kecil yang dapat menampung beberapa orang di dalamnya.</p>
+                            <p>Lorem ipsum dolor sit amet, consec adipiscing elit. Nunc lorem nulla, ornare eu felis luctus
+                                non maximus vitae, portt neque. ipsum dolor sit amet, consec adipiscing elit.</p>
                             <!-- <div class="links"><a href="#">Read more</a></div> -->
                         </div>
                     </div>
@@ -82,7 +84,8 @@
                     <div class="side-B">
                         <div class="product-desc-side">
                             <h3><a>Roller Coaster</a></h3>
-                            <p>Wahana ini terdiri dari rel berbentuk seperti jalan setapak yang membentang di atas tanah dan terkadang di atas bangunan atau struktur lainnya.</p>
+                            <p>Lorem ipsum dolor sit amet, consec adipiscing elit. Nunc lorem nulla, ornare eu felis luctus
+                                non maximus vitae, portt neque. ipsum dolor sit amet, consec adipiscing elit.</p>
                             <!-- <div class="links"><a href="#">Read more</a></div> -->
                         </div>
                     </div>
@@ -92,7 +95,8 @@
                     <div class="side-A">
                         <div class="product-desc-side">
                             <h3><a>Tornado</a></h3>
-                            <p>memiliki bentuk yang mirip dengan tornado, yaitu berbentuk kerucut dan berputar dengan kecepatan yang tinggi</p>
+                            <p>Lorem ipsum dolor sit amet, consec adipiscing elit. Nunc lorem nulla, ornare eu felis luctus
+                                non maximus vitae, portt neque. ipsum dolor sit amet, consec adipiscing elit.</p>
                             <!-- <div class="links"><a href="#">Read more</a></div> -->
                         </div>
                     </div>
@@ -111,7 +115,8 @@
                     <div class="side-A">
                         <div class="product-desc-side">
                             <h3><a>Kicir-Kicir</a></h3>
-                            <p>Wahana ini terdiri dari kursi-kursi kecil yang tergantung pada sebuah tiang pusat</p>
+                            <p>Lorem ipsum dolor sit amet, consec adipiscing elit. Nunc lorem nulla, ornare eu felis luctus
+                                non maximus vitae, portt neque. ipsum dolor sit amet, consec adipiscing elit.</p>
                             <!-- <div class="links"><a href="#">Read more</a></div> -->
                         </div>
                     </div>
@@ -146,48 +151,240 @@
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
                             <div class="blog-box">
-                                <p>Sensasi yang saya rasakan sangat luar biasa! Saya suka kecepatan dan putaran yang membuat saya terasa seperti terbang.</p>
+                                <p>{{ $testimonis[0]->testimoni_text }}</p>
                             </div>
                             <div class="blog-view-box">
                                 <div class="media">
                                     <div class="media-left">
-                                        <img src="images/client1.png" class="media-object">
+                                        {{-- <img src="images/client1.png" class="media-object"> --}}
                                     </div>
                                     <div class="media-body">
-                                        <h3 class="media-heading blog-title">Walter Hucko</h3>
-                                        <h5 class="blog-rev">Satisfied Customer</h5>
+                                        <div class="row">
+                                            <div class="col-lg-5">
+                                                <h3 class="media-heading blog-title">{{ $testimonis[0]->nama_depan }}
+                                                    {{ $testimonis[0]->nama_belakang }}</h3>
+                                                <h5 class="blog-rev">{{ $testimonis[0]->tanggal }}</h5>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                @if ($testimonis[0]->rating === '1')
+                                                <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                    width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star (1).png"
+                                                    alt="" width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star (1).png"
+                                                    alt="" width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star (1).png"
+                                                    alt="" width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star (1).png"
+                                                    alt="" width="50px">
+                                            @elseif($testimonis[0]->rating === '2')
+                                                <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                    width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                    width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star (1).png"
+                                                    alt="" width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star (1).png"
+                                                    alt="" width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star (1).png"
+                                                    alt="" width="50px">
+                                            @elseif($testimonis[0]->rating === '3')
+                                                <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                    width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                    width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                    width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star (1).png"
+                                                    alt="" width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star (1).png"
+                                                    alt="" width="50px">
+                                            @elseif($testimonis[0]->rating === '4')
+                                                <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                    width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                    width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                    width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                    width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star (1).png"
+                                                    alt="" width="50px">
+                                            @elseif($testimonis[0]->rating === '5')
+                                                <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                    width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                    width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                    width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                    width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                    width="50px">
+                                            @endif
+
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="item">
                             <div class="blog-box">
-                                <p>Bagian yang saya kurang sukai adalah saat wahana berbelok dengan tiba-tiba, terutama ketika kepala saya bergesekan dengan sandaran kursi. Mungkin bisa diperbaiki dengan membuat sudut belok yang lebih lembut.</p>
+                                <p>{{ $testimonis[1]->testimoni_text }}</p>
                             </div>
                             <div class="blog-view-box">
                                 <div class="media">
                                     <div class="media-left">
-                                        <img src="images/client2.png" class="media-object">
+                                        {{-- <img src="images/client2.png" class="media-object"> --}}
                                     </div>
                                     <div class="media-body">
-                                        <h3 class="media-heading blog-title">Jules Boutin</h3>
-                                        <h5 class="blog-rev">Satisfied Customer</h5>
+                                        <div class="row">
+                                            <div class="col-lg-5">
+                                                <h3 class="media-heading blog-title">{{ $testimonis[1]->nama_depan }}
+                                                    {{ $testimonis[1]->nama_belakang }}</h3>
+                                                <h5 class="blog-rev">{{ $testimonis[1]->tanggal }}</h5>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                @if ($testimonis[1]->rating === '1')
+                                                <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                    width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star (1).png"
+                                                    alt="" width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star (1).png"
+                                                    alt="" width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star (1).png"
+                                                    alt="" width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star (1).png"
+                                                    alt="" width="50px">
+                                            @elseif($testimonis[1]->rating === '2')
+                                                <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                    width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                    width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star (1).png"
+                                                    alt="" width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star (1).png"
+                                                    alt="" width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star (1).png"
+                                                    alt="" width="50px">
+                                            @elseif($testimonis[1]->rating === '3')
+                                                <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                    width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                    width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                    width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star (1).png"
+                                                    alt="" width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star (1).png"
+                                                    alt="" width="50px">
+                                            @elseif($testimonis[1]->rating === '4')
+                                                <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                    width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                    width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                    width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                    width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star (1).png"
+                                                    alt="" width="50px">
+                                            @elseif($testimonis[1]->rating === '5')
+                                                <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                    width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                    width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                    width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                    width="50px">
+                                                <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                    width="50px">
+                                            @endif
+
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="item">
                             <div class="blog-box">
-                                <p>Bagian yang saya kurang sukai adalah saat wahana berbelok dengan tiba-tiba, terutama ketika kepala saya bergesekan dengan sandaran kursi. Mungkin bisa diperbaiki dengan membuat sudut belok yang lebih lembut.</p>
+                                <p>{{ $testimonis[2]->testimoni_text }}</p>
                             </div>
                             <div class="blog-view-box">
                                 <div class="media">
                                     <div class="media-left">
-                                        <img src="images/client3.png" class="media-object">
+                                        {{-- <img src="images/client3.png" class="media-object"> --}}
                                     </div>
                                     <div class="media-body">
-                                        <h3 class="media-heading blog-title">Attilio Marzi</h3>
-                                        <h5 class="blog-rev">Satisfied Customer</h5>
+                                        <div class="row">
+                                            <div class="col-lg-5">
+                                                <h3 class="media-heading blog-title">{{ $testimonis[2]->nama_depan }}
+                                                    {{ $testimonis[2]->nama_belakang }}</h3>
+                                                <h5 class="blog-rev">{{ $testimonis[2]->tanggal }}</h5>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                @if ($testimonis[2]->rating === '1')
+                                                    <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                        width="50px">
+                                                    <img src="{{ asset('') }}images\icons\Star (1).png"
+                                                        alt="" width="50px">
+                                                    <img src="{{ asset('') }}images\icons\Star (1).png"
+                                                        alt="" width="50px">
+                                                    <img src="{{ asset('') }}images\icons\Star (1).png"
+                                                        alt="" width="50px">
+                                                    <img src="{{ asset('') }}images\icons\Star (1).png"
+                                                        alt="" width="50px">
+                                                @elseif($testimonis[2]->rating === '2')
+                                                    <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                        width="50px">
+                                                    <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                        width="50px">
+                                                    <img src="{{ asset('') }}images\icons\Star (1).png"
+                                                        alt="" width="50px">
+                                                    <img src="{{ asset('') }}images\icons\Star (1).png"
+                                                        alt="" width="50px">
+                                                    <img src="{{ asset('') }}images\icons\Star (1).png"
+                                                        alt="" width="50px">
+                                                @elseif($testimonis[2]->rating === '3')
+                                                    <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                        width="50px">
+                                                    <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                        width="50px">
+                                                    <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                        width="50px">
+                                                    <img src="{{ asset('') }}images\icons\Star (1).png"
+                                                        alt="" width="50px">
+                                                    <img src="{{ asset('') }}images\icons\Star (1).png"
+                                                        alt="" width="50px">
+                                                @elseif($testimonis[2]->rating === '4')
+                                                    <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                        width="50px">
+                                                    <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                        width="50px">
+                                                    <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                        width="50px">
+                                                    <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                        width="50px">
+                                                    <img src="{{ asset('') }}images\icons\Star (1).png"
+                                                        alt="" width="50px">
+                                                @elseif($testimonis[2]->rating === '5')
+                                                    <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                        width="50px">
+                                                    <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                        width="50px">
+                                                    <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                        width="50px">
+                                                    <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                        width="50px">
+                                                    <img src="{{ asset('') }}images\icons\Star.png" alt=""
+                                                        width="50px">
+                                                @endif
+
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

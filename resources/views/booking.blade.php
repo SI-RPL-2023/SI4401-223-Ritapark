@@ -17,6 +17,14 @@
                         @if (Auth::user())
                         <form action="{{ route('booking.store') }}" method="post">
                         @csrf
+                        @if (session('notification'))
+                            <div class="form-group">
+                                <div class="alert alert-{{ session('notification.type') }}">
+                                    {{ session('notification.message') }} {{$kode_promo}}
+                                </div>
+                                <input class="text-light" hidden name="kode_promo" value="{{$kode_promo ?? ''}}">
+                            </div>
+                        @endif
                         <h3>Booking Tiket</h3>
                         <div style="margin-top: 20px;"></div>
                         <div class="form-group">

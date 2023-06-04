@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      */
@@ -19,8 +20,9 @@ return new class extends Migration {
             $table->enum("status", ['Aktif', 'Tidak Aktif'])->default('Aktif');
             $table->string("kode_promo");
             $table->unsignedInteger("potongan");
-            $table->unsignedInteger("kuota_promo");
+            $table->unsignedInteger("kuota_promo")->nullable();
             $table->unsignedInteger("terpakai_promo")->default(0);
+            $table->string("gambar_promo");
             $table->timestamps();
         });
     }

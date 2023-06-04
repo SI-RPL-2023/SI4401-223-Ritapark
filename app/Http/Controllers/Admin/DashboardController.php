@@ -3,14 +3,37 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Ticket;
+use App\Models\Testimoni;
+use App\Models\Booking;
+use Akaunting\Apexcharts\Chart;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.dashboard');
+        $tickets = Ticket::count();
+        $periode = $request->query('periode', 'bulan_ini');
+        $reports = $this->pendapatan($periode);
+        $maxRating = 5.0;
+        $rating = Testimoni::where('rating', '<=', $maxRating)->count();
+
+        return view('admin.dashboard', compact('tickets', 'periode', 'rating', 'reports'));
+    }
+
+    public function pendapatan($periode)
+    {
+        $data = new \stdClass();
+
+        if ($periode === 'bulan_lalu') {
+            $data->pendapatan = Booking::whereMonth('created_at', '=', now()->subMonth()->month)->sum('total_harga');
+        } else {
+            $data->pendapatan = Booking::whereMonth('created_at', '=', now()->month)->sum('total_harga');
+        }
+
+        return $data;
     }
 
     public function RolesView()
@@ -31,7 +54,7 @@ class DashboardController extends Controller
 
         return redirect()->back()->with('success', 'Role updated successfully');
     }
-    
+
     public function hapus($id)
     {
         $user = User::findOrFail($id);

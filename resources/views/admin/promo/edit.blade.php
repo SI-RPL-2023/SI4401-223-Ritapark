@@ -51,7 +51,13 @@
                             <label for="kuota_promo">Kuota Promo</label>
                             <input type="text" name="kuota_promo" id="kuota_promo" class="form-control" value="{{ $promo->kuota_promo }}" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Update</button>
+
+                        <div class="form-group">
+                            <label for="image">Upload Gambar :</label>
+                            <input type="file" class="form-control h-100" id="image" name="image" accept=".jpg,.gif,.png,.webp">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Ubah</button>
                     </form>
                 </div>
             </div>
