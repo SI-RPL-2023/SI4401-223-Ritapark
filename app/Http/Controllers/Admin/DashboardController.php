@@ -28,9 +28,9 @@ class DashboardController extends Controller
         $data = new \stdClass();
 
         if ($periode === 'bulan_lalu') {
-            $data->pendapatan = Booking::whereMonth('created_at', '=', now()->subMonth()->month)->sum('total');
+            $data->pendapatan = Booking::whereMonth('created_at', '=', now()->subMonth()->month)->sum('total_harga');
         } else {
-            $data->pendapatan = Booking::whereMonth('created_at', '=', now()->month)->sum('total');
+            $data->pendapatan = Booking::whereMonth('created_at', '=', now()->month)->sum('total_harga');
         }
 
         return $data;
@@ -54,7 +54,7 @@ class DashboardController extends Controller
 
         return redirect()->back()->with('success', 'Role updated successfully');
     }
-    
+
     public function hapus($id)
     {
         $user = User::findOrFail($id);

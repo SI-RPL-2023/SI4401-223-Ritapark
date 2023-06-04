@@ -42,7 +42,7 @@
                         <div class="promo-offer-details">
                             <h1>Promo Spesial</h1>
                             <!-- <h4>Lorem ipsum dolor sit amet, conse ctetuer adipiscing elit.</h4> -->
-                            <a href="{{ route('promo') }}" class="btn btn-default">Lihat Promo</a>
+                            <a href="{{ route('halamanPromo') }}" class="btn btn-default">Lihat Promo</a>
                         </div>
                     </div>
                 </div>
