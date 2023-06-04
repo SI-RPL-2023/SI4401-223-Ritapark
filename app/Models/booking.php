@@ -15,6 +15,10 @@ class Booking extends Model
         "ticket_id",
         "date",
         "qty",
+        "metode",
+        'diskon',
+        'kode_promo',
+        "total_harga",
         "bukti_pembayaran",
         "status",
         "discount", // tambahkan kolom discount ke dalam fillable

@@ -9,6 +9,9 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "akaunting/laravel-apexcharts": "^3.0",
+        "asantibanez/livewire-charts": "^2.5",
+        "consoletvs/charts": "^6.0",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.0",
         "laravel/sanctum": "^3.2",

@@ -64,6 +64,7 @@ class TicketsController extends Controller
             'qty' => 'required',
             'kode_promo' => 'nullable' // Menandakan bahwa 'kode_promo' bisa bersifat nullable
         ]);
+        $tiket = Ticket::find($request->ticket_id);
 
         // Nambah buat ngambil harga Tiket
         $harga = Ticket::where('id', $request->ticket_id);
