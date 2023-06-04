@@ -12,7 +12,7 @@
             <li><a data-hover="Home" href="{{ route('home') }}" class="{{ Request::is('/') ? 'active' : '' }}"><span>Home</span></a></li>
             <li><a data-hover="Wahana" href="{{ route('wahana') }}" class="{{ Request::is('/wahana') ? 'active' : '' }}"><span>Wahana</span></a></li>
             <li><a data-hover="Tentang Kami" href="{{ route('about') }}" class="{{ Request::is('/tentangkami') ? 'active' : '' }}"><span>Tentang Kami</span></a></li>
-            <li><a data-hover="Promo" href="{{ route('home') }}" class="{{ Request::is('/tentangkami') ? 'active' : '' }}"><span>Promo</span></a></li>
+            <li><a data-hover="Promo" href="{{ route('halamanPromo') }}" class="{{ Request::is('/tentangkami') ? 'active' : '' }}"><span>Promo</span></a></li>
             <li><a data-hover="Beli tiket" href="{{ route('booking') }}" class="{{ Request::is('/booking') ? 'active' : '' }}"><span>Beli Tiket</span></a></li>
             <li><a data-hover="Testimoni" href="{{ route('testimoni') }}" class="{{ Request::is('/testimoni') ? 'active' : '' }}"><span>Testimoni</span></a></li>
         </ul>
