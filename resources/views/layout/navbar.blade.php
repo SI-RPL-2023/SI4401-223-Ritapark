@@ -36,7 +36,7 @@
                             <button class="btn btn-danger px-4 my-3 text-white dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">{{Session::get('name')}}</button>                                        
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="aa.php">Profil</a></li>
-                                <li><a class="dropdown-item" href="{{route('logout')}}">Logout</a></li>
+                                <li><a class="dropdown-item" href="{{route('profile')}}">Akun</a></li>
                             </ul>
                         </li>
                     @else

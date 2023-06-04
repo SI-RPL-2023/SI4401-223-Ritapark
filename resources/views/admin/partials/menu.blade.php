@@ -25,5 +25,11 @@
           <span class="menu-title">Wahana</span>
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('adm.promo.index') }}">
+          <i class="menu-icon mdi mdi-sale"></i>
+          <span class="menu-title">Promo</span>
+        </a>
+      </li>
     </ul>
   </nav>
