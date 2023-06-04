@@ -22,6 +22,10 @@ return new class extends Migration
                 ->references("id")
                 ->on("tickets");
             $table->integer("qty");
+            $table->string("metode")->nullable();
+            $table->string("diskon")->nullable();
+            $table->string("kode_promo")->nullable();
+            $table->integer("total_harga")->nullable();
             $table->string("bukti_pembayaran")->nullable();
             $table->string("status");
             $table->date("date");

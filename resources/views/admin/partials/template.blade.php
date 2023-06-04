@@ -243,7 +243,6 @@
     <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
-
   <!-- plugins:js -->
   <script src="{{ asset('assets/vendors/js/vendor.bundle.base.js') }}"></script>
   <!-- endinject -->
@@ -264,6 +263,9 @@
   <script src="{{ asset('assets/js/jquery.cookie.js') }}" type="text/javascript"></script>
   <script src="{{ asset('assets/js/dashboard.js') }}"></script>
   <script src="{{ asset('assets/js/Chart.roundedBarCharts.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  {{-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.2.1/dist/alpine.js" defer></script> --}}
+  @livewireScripts
   <!-- End custom js for this page-->
 </body>
 

@@ -43,10 +43,12 @@ class TicketsController extends Controller
             'date' =>  'required',
             'qty' => 'required'
         ]);
+        $tiket = Ticket::find($request->ticket_id);
 
         $data = Booking::insertGetId([
             'tickets_id' => $request->ticket_id, 'user_id' => Auth::user()->id,
             'qty' => $request->qty, 'date' => $request->date, 'status' => 0,
+            'total' => $request->qty * $tiket->harga,
             'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => \Carbon\Carbon::now()->toDateTimeString()
         ]);
@@ -67,9 +69,11 @@ class TicketsController extends Controller
 
     public function payment2($id)
     {
+
         $data = Booking::join('tickets', 'tickets.id', '=', 'bookings.tickets_id')
             ->where('bookings.id', $id)
             ->first();
+
         if ($data->status == 0) {
             return view('payment2', compact('data', 'id'));
         } else {
