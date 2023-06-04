@@ -21,6 +21,7 @@ class BookingController extends Controller
         'tickets.harga',
         'tickets.deskripsi',
         'bookings.qty',
+        'bookings.total_harga',
         'bookings.status',
         'bookings.bukti_pembayaran'
       )

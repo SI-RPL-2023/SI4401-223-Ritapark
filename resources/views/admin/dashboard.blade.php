@@ -1,6 +1,14 @@
 @extends('admin.partials.template')
 
 @section('content')
+@php
+    function rupiah($angka){
+	
+        $hasil_rupiah = "Rp " . number_format($angka,2,',','.');
+        return $hasil_rupiah;
+    
+    }
+@endphp
     <div class="row">
       <div class="col-sm-12">
         <h2>Dashboard</h2>
@@ -26,7 +34,7 @@
                       </ul>
                     </div>
                   </div>
-                  <h2 class="fw-bold text-success">Rp.{{ $reports->pendapatan }}</h2>
+                  <h2 class="fw-bold text-success">{{ rupiah($reports->pendapatan) }}</h2>
                 </div>
               </div>
               <div class="card shadow" style="margin-left: 35px">
