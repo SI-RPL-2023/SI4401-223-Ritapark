@@ -21,6 +21,7 @@ return new class extends Migration
                 ->foreignId("tickets_id")
                 ->references("id")
                 ->on("tickets");
+            $table->string("kode_promo")->nullable();
             $table->integer("qty");
             $table->string("kode_promo")->nullable();
             $table->integer("total_harga")->nullable();

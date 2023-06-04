@@ -27,6 +27,33 @@
                                         <a href="{{ $item->status ? route('ticket',$item->id) : '' }}" class="btn {{ $item->status ? 'btn-success active' : 'btn-default' }}" disabled>View</a>
                                     @elseif ($item->status == 1)
                                         <a href="{{ $item->status ? route('ticket',$item->id) : '' }}" class="btn {{ $item->status ? 'btn-success active' : 'btn-default' }}">View</a>
+                                    @elseif ($item->status == 3)
+                                        <a href="#" class="btn btn-secondary" disabled hidden></a>
+                                    @elseif ($item->status == 4)
+                                        <a href="#" class="btn btn-secondary" disabled hidden></a>
+                                    @elseif ($item->status == 5)
+                                        <a href="#" data-toggle="modal" data-target="#myModal" class="btn btn-danger">Detail</a>
+                                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="myModalLabel">Kenapa Refund saya ditolak?</h5>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <!-- Isi konten modal di sini -->
+                                                        <div>1. Nomor rekening tidak ditemukan</div>
+                                                        <div>2. Nama di rekening tidak sama dengan yang diberikan</div>
+                                                        <div>3. Nama bank/e-wallet tidak terdaftar. Pastikan anda mengisi dengan benar</div>
+                                                        <div>4. Alasan refund tidak dapat diterima. Pastikan anda mengisi alasan dengan benar</div>
+                                                        <br>
+                                                        <strong class="text-large text-bold">Anda tetap dapat melakukan refund ulang tiket ini</strong>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     @else
                                         <a href="{{ $item->status ? route('tiketBayar',$item->id) : '' }}" class="btn {{ $item->status ? 'btn-warning active' : 'btn-default' }}">Bayar</a>
                                     @endif
@@ -35,6 +62,12 @@
                                             <span class="text-muted h5" style="text">Menunggu Konfirmasi</span>
                                         @elseif ($item->status == 1)
                                             <span class="text-success h5" style="text">Tiket telah terbit</span>
+                                        @elseif ($item->status == 3)
+                                            <span class="text-muted h5" style="text">Menunggu Konfirmasi Refund</span>
+                                        @elseif ($item->status == 4)
+                                            <span class="text-muted h5" style="text">Refund Berhasil</span>
+                                        @elseif ($item->status == 5)
+                                            <span class="text-muted h5" style="text">Refund Ditolak</span>
                                         @else
                                             <span class="text-muted h5">Menunggu Pembayaran</span>
                                         @endif

@@ -45,8 +45,12 @@ Route::group(['middleware' => ["Role"], 'as' => 'adm.'], function () {
     Route::get('/admin/promo/create', [PromoController::class, 'create'])->name('promo.create');
     Route::post('/admin/promo', [PromoController::class, 'store'])->name('promo.store');
     Route::get('/admin/promo/{promo}/edit', [PromoController::class, 'edit'])->name('promo.edit');
-    Route::post('/admin/promo/{promo}', [PromoController::class, 'update'])->name('promo.update');
+    Route::put('/admin/promo/{promo}', [PromoController::class, 'update'])->name('promo.update');
     Route::delete('/admin/promo/{promo}', [PromoController::class, 'destroy'])->name('promo.destroy');
+
+    Route::get('/admin/refund', [RefundController::class, 'adminConfirmation'])->name('refundConfirmation');
+    Route::post('/admin/refund/{refundId}/confirm', [RefundController::class, 'confirmRefund'])->name('refundconfirm');
+    Route::post('/admin/refund/{refundId}/tolak', [RefundController::class, 'tolakRefund'])->name('refundtolak');
 });
 
 Route::get('/profile', [ProfileController::class,'profile'])->name('profile');
@@ -83,9 +87,8 @@ Route::post('/booking_store', [TicketsController::class,'booking_store'])->name(
 Route::get('/payment/{id}', [TicketsController::class,'payment'])->name('payment');
 Route::post('/payment2/{id}', [TicketsController::class, 'payment2'])->name('payment2');
 Route::get('/bayarTiket/{id}', [TicketsController::class, 'tiketBayar'])->name('tiketBayar');
-
 Route::put('/payment_confirmation', [TicketsController::class, 'payment_confirmation'])->name('payment.confirmation');
-Route::get('/ticket/{id}', [TicketsController::class, 'ticket'])->name('ticket');
+Route::get('/ticket/{id}', [TicketsController::class,'ticket'])->name('ticket');
 
 Route::post('/booking_confirmation', [TicketsController::class, 'booking_confirmation'])->name('booking.confirmation');
 Route::post('/add_testimoni', [TestimoniController::class, 'store'])->name('testimoni.store');
@@ -97,3 +100,8 @@ Route::post('/forgotS', [ForgotPassController::class,'forgotS'])->name('forgotS'
 
 Route::get('/promo', [PromoController::class, 'halamanPromo'])->name('halamanPromo');
 Route::get('/booking/promo/{kode_promo}', [TicketsController::class,'bookingPromo'])->name('bookingPromo');
+Route::get('/refund', [RefundController::class, 'refundForm'])->name('refund.form');
+  
+// Rute untuk mengirimkan formulir refund tiket
+Route::post('/refund', [RefundController::class, 'refundSubmit'])->name('refund.submit');
+

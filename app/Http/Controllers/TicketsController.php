@@ -90,6 +90,12 @@ class TicketsController extends Controller
             Session::flash('success', $message);
         }
 
+        // Nambah buat ngambil harga Tiket
+        $harga = Ticket::where('id', $request->ticket_id);
+        $getTiket = $harga->first();
+        $harga = $getTiket->harga;
+        $totalHarga = ($harga) * $request->qty;
+
         $data = Booking::insertGetId([
             'tickets_id' => $request->ticket_id, 'user_id' => Auth::user()->id,
             'qty' => $request->qty, 'date' => $request->date, 'status' => 2,
