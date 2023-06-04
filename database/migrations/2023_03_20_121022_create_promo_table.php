@@ -16,10 +16,11 @@ return new class extends Migration {
             $table->string("deskripsi");
             $table->date("tanggal_mulai");
             $table->date("tanggal_selesai");
-            $table->string("status");
+            $table->enum("status", ['Aktif', 'Tidak Aktif'])->default('Aktif');
             $table->string("kode_promo");
-            $table->string("potongan");
-            $table->string("kuota_promo");
+            $table->unsignedInteger("potongan");
+            $table->unsignedInteger("kuota_promo");
+            $table->unsignedInteger("terpakai_promo")->default(0);
             $table->timestamps();
         });
     }
