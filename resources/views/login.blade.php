@@ -32,12 +32,12 @@
                   @endif
                   <div class="form-outline mb-4">
                     <label class="form-label" for="form2Example17">Email address</label>
-                    <input type="email" name="email" id="form2Example17" class="form-control form-control-lg" required>
+                    <input type="email" name="email" id="email" class="form-control email form-control-lg" required>
                   </div>
 
                   <div class="form-outline mb-4">
                     <label class="form-label" for="form2Example27">Password</label>
-                    <input type="password" name="password" id="form2Example27" class="form-control form-control-lg" minlength="8" 
+                    <input type="password" name="password" id="password" class="form-control password form-control-lg" minlength="8" 
                     oninvalid="this.setCustomValidity('Password harus minimal 8 karakter')" oninput="this.setCustomValidity('')" required>
                     <a class="small text-muted" href="{{route('forgot')}}">Lupa password?</a>
                   </div>
